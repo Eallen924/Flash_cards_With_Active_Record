@@ -1,8 +1,11 @@
 <div class = "container">
-  <%if @guess.correct?%>
+  <%if @guess.correct? == 1 %>
   You were correct! Next Card:<br>
   <%else%>
-  You were incorrect! :( Next Card:<br>
+  You were incorrect! :(<br>
+  The answer is : <%=@card.term%>
   <%end%>
-  <a href = "/round/<%=@guess.deck_id%>"> Next Term</a>
+  <div class="button">
+    <a href = "/round/<%=@guess.deck_id%>"> Next Term</a>
+  </div>
 </div>
