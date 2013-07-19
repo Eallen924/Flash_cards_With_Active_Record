@@ -1,0 +1,19 @@
+<div class = "container">
+  <h1>Create User</h1>
+  <form action="/user/create" method="post">
+    <label>Username: <input type="text" name="user[username]"></label><br>
+    <label>Email: <input type="text" name="user[email]"></label><br>
+    <label>Password: <input type="password" name="user[password]"></label><br>
+    <input class='button' type="submit" value="submit">
+  </form>
+  <h1>Login</h1>
+  <% if @error %>
+    <p><%= @error %></p>
+  <% end %>
+  <form action="/decks" method="post">
+    <label>Username: <input type="text" name="user[username]"></label><br>
+    <label>Password: <input type="password" name="user[password]"></label>
+    <input class='button' type="submit" value="submit">
+  </form>
+<br>
+</div>
