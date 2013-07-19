@@ -6,5 +6,6 @@ get '/round/:deck_id' do
 end
 
 post '/deck/:deck_id/round/:round_id/card/:card_id' do
-  params 
+  params
+  erb :guess
 end

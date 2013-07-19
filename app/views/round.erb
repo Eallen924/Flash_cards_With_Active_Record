@@ -1,1 +1,8 @@
-  
+<div class = 'container'>
+  <% if @card%>
+  <%= @card.definition %>
+  <form method="post" action="/deck/:deck_id/round/:round_id/card/:card_id/:guess">
+  <input id="" type="text" name="user_guess"  placeholder= "Type your answer.">
+  <input type="submit">
+  </form>
+</div>
