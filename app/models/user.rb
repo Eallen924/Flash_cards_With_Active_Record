@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
   validates :email, presence: true, uniqueness: => true
   validates :password, presence: true,length: { in: 6..20 }
   validates :password_hash, presence: => true
-
+  
   
   def password
     @password ||= BCrypt::Password.new(password_hash)
