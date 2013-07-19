@@ -1,5 +1,8 @@
 get '/' do
-  # Look in app/views/index.erb
-  erb :index
+  if current.user
+    redirect to '/decks'
+  else
+    erb :index
+  end
 end
 
