@@ -12,8 +12,8 @@ end
 post '/user/create' do 
   @user = User.new(params[:user])
   if @user.save
+    session[:user_id] = @user.id
     redirect to '/decks'
-    @errors = @user.errors
   else
     @errors = @user.errors
     redirect to '/'
