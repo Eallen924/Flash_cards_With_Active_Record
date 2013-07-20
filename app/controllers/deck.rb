@@ -1,7 +1,8 @@
-get '/decks'
+get '/decks' do
   @decks = Deck.all
-  erb: decks
+  erb :decks
 end
 
-get '/decks/:deck_id'
+get '/decks/:deck_id' do
   @round = Round.create(:deck_id)
+end

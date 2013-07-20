@@ -1,5 +1,5 @@
 get '/' do
-  if current.user
+  if current_user
     redirect to '/decks'
   else
     erb :index

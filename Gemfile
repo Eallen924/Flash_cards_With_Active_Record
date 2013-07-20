@@ -16,11 +16,11 @@ gem 'activerecord'
 gem 'rake'
 
 gem 'shotgun'
+gem 'bcrypt-ruby'
 
 group :test do
   gem 'faker'
   gem 'rspec'
   gem 'pry'
-  gem 'bcrypt-ruby'
   gem 'awesome_print'
 end

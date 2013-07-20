@@ -1,16 +1,16 @@
 class User < ActiveRecord::Base
-  validates :username, presence: true, uniqueness: => true
-  validates :email, presence: true, uniqueness: => true
-  validates :password, presence: true,length: { in: 6..20 }
-  validates :password_hash, presence: => true
-  
+  validates :username, presence: true, uniqueness: true
+  validates :email, presence: true, uniqueness: true
+  validates :password_hash, presence: true
+    
+  has_many :rounds
   
   def password
     @password ||= BCrypt::Password.new(password_hash)
   end
 
   def password=(new_password)
-    @password = Bcrypt::Password.create(new_password)
+    @password = BCrypt::Password.create(new_password)
     self.password_hash = @password
   end
 

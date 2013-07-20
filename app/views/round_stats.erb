@@ -1,0 +1,17 @@
+<div class = "container">
+  <h1>Congratulations!</h1>
+
+  You finished <%=@round.deck.name%>
+  <%@round.guesses.each do |guess|%>
+  <ul>
+    <li><%=guess.id%></li>
+    <li><%=guess.user_guess%></li>
+    <li><%=@round.cards.find(guess.card_id).term%></li>
+    <li><%=guess.correct?%></li>
+  </ul>
+
+  <%end%>
+
+
+
+</div>

@@ -7,10 +7,10 @@
     <input class='button' type="submit" value="submit">
   </form>
   <h1>Login</h1>
-  <% if @error %>
-    <p><%= @error %></p>
+  <% if @errors %>
+    <p><%= @errors%></p>
   <% end %>
-  <form action="/decks" method="post">
+  <form action="/user/login" method="post">
     <label>Username: <input type="text" name="user[username]"></label><br>
     <label>Password: <input type="password" name="user[password]"></label>
     <input class='button' type="submit" value="submit">

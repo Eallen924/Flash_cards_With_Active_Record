@@ -1,27 +1,43 @@
-get 'users/:id/decks' do
+get '/users/:id/decks' do
   @decks = Deck.all
   @user = User.find_by(:id)
   erb :user_home
 end
 
-get 'users/:id/profile' do
+get '/users/:id/profile' do
   @user = User.find_by(:id)
-  @decks #method to find deck of users
-  @rounds
   erb :user_profile
 end
 
-post 'user/create' do 
+post '/user/create' do 
   @user = User.new(params[:user])
   if @user.save
-
-
+    redirect to '/decks'
+    @errors = @user.errors
+  else
+    @errors = @user.errors
+    redirect to '/'
+  end
 end
 
-post 'user/login' do 
+get '/user/:user_id/round/:round_id/stats' do
+  @round = Round.find(params[:round_id])
+  erb :round_stats
+end
+
+post '/user/login' do 
+  p params
   @user = User.authenticate(params[:user][:username], params[:user][:password])
   if @user
     session[:user_id] = @user.id
+    redirect to '/decks'
   else
-    @error = "Invalid login info \n Please try again."
+    @errors = "Invalid login info \n Please try again."
+    erb :index
+  end
+end
+
+get '/logout' do
+  session.clear
+  redirect to '/'
 end

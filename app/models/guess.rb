@@ -5,4 +5,8 @@ class Guess < ActiveRecord::Base
   validates :correct?, presence: true 
   validates_inclusion_of :correct?, :in => [ 1, 0 ]
   validates :user_guess, presence: true
+
+  belongs_to :round
+  belongs_to :card
+  has_one :user, :through => :round
 end

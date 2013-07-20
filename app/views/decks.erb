@@ -2,7 +2,7 @@
 <%if @decks%>
 <%@decks.each do |deck|%>
 <ul>
-  <li><a href="/round/#{<%=deck.id%>}"><%=deck.name%></a></li>
+  <li><a href="/round/<%=deck.id%>"><%=deck.name%></a></li>
   <%end%>
 </ul>
 <%end%>
