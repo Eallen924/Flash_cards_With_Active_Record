@@ -1,7 +1,24 @@
-$(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+var dataTransition = function(data){
+  $('.container').replaceWith(data);
+};
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+$(document).ready(function() {
+  $('#start_game').on('click', function(event){
+    event.preventDefault();
+    var url = $(this).attr('href');
+    $.get(url, dataTransition);
+  });
+
+  $('#card_question').on('submit', function(event) {
+    event.preventDefault();
+    var url = $(this).attr('action');
+    var userGuess = $(this).serialize();
+    $.post(url, userGuess, dataTransition);
+  });
+
+  $('#next_card').on('click', function(event){
+    event.preventDefault();
+    var url = $(this).attr('href');
+    $.get(url, dataTransition);
+  });
 });
