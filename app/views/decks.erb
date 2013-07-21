@@ -1,9 +1,23 @@
-<div class='container'>
-<%if @decks%>
-<%@decks.each do |deck|%>
-<ul>
-  <li><a id="start_game" href="/round/<%=deck.id%>"><%=deck.name%></a></li>
-  <%end%>
-</ul>
-<%end%>
+<div id="container">
+  <table class="pure-table">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Deck Name</th>
+        <th># of Cards</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <%if @decks%>
+        <%@decks.each do |deck|%>
+          <tr>
+            <td><%=deck.id%></td>
+            <td><a id="start_game" href="/round/<%=deck.id%>"><%=deck.name%></a></td>
+            <td><%=deck.cards.count%></td>
+          </tr>
+        <%end%>
+      <%end%>
+    </tbody>
+  </table>
 </div>

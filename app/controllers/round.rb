@@ -1,4 +1,5 @@
 get '/round/:deck_id' do
+  puts "I AM GETTING HIT BY THE AJAX"
   @round = Round.find_or_create_by(deck_id: params[:deck_id], user_id: current_user.id)
   session[:card_ids] = @round.generate_cards(params[:deck_id]) unless session[:card_ids]
   if request.xhr?

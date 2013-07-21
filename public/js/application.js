@@ -1,5 +1,5 @@
 var dataTransition = function(data){
-  $('.container').replaceWith(data);
+  $('#container').replaceWith(data);
 };
 
 $(document).ready(function() {
