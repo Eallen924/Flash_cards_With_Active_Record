@@ -20,11 +20,6 @@ post '/user/create' do
   end
 end
 
-get '/user/:user_id/round/:round_id/stats' do
-  @round = Round.find(params[:round_id])
-  erb :round_stats
-end
-
 post '/user/login' do 
   p params
   @user = User.authenticate(params[:user][:username], params[:user][:password])

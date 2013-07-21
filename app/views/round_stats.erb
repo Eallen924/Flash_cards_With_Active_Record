@@ -4,8 +4,14 @@
   You finished <%=@round.deck.name%>
 
   <img src="<%= @stats.to_url %>" alt="All Time Stats" />
-   <p>This round you got <%=@round.guesses.right.count%> questions correct!
-
-
-
+   <p>This round you got <%=@right.count%> out of <%=@round.guesses.count%> questions correct!
+  <ul>  
+  <%@wrong.each do |guess| %>
+  <li>For definition: <%=guess.card.definition%></li>
+    <ul>
+      <li>the correct answer is: <%=guess.card.term %></li>
+      <li>but you guessed: <%=guess.user_guess %></li>
+    </ul>
+  <%end%>
+  </ul>
 </div>
