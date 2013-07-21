@@ -28,6 +28,10 @@ GEM
     eventmachine (1.0.3)
     faker (1.1.2)
       i18n (~> 0.5)
+    gchart (1.0.0)
+      hoe (>= 2.3.2)
+    hoe (3.6.3)
+      rake (>= 0.8, < 11.0)
     i18n (0.6.4)
     method_source (0.8.1)
     minitest (4.7.5)
@@ -83,6 +87,7 @@ DEPENDENCIES
   awesome_print
   bcrypt-ruby
   faker
+  gchart
   pg
   pry
   rake
