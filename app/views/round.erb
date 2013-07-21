@@ -1,8 +1,8 @@
 <div class = 'container'>
   <% if @card%>
   <%= @card.definition %>
-  <form method="post" action="/deck/<%=@card.deck_id%>/round/<%=@round.id%>/card/<%=@card.id%>/guess">
-  <input type="text" name="guess[user_guess]"  placeholder= "Type your answer." autofocus>
+  <form id="card_question" method="post" action="/deck/<%=@card.deck_id%>/round/<%=@round.id%>/card/<%=@card.id%>/guess">
+  <input id="user_guess" type="text" name="guess[user_guess]"  placeholder= "Type your answer." autofocus>
   <input type="hidden" name="guess[term]" value="<%=@card.term%>">
   <input type="submit">
   </form>
