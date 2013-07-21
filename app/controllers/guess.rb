@@ -1,5 +1,4 @@
 post '/deck/:deck_id/round/:round_id/card/:card_id/guess' do
-<<<<<<< HEAD
   if request.xhr?
     p params
     if params[:guess][:term] == params[:guess][:user_guess]
@@ -22,7 +21,6 @@ post '/deck/:deck_id/round/:round_id/card/:card_id/guess' do
       @card = Card.find(params[:card_id])
       erb :answer
     end
-=======
   
   if params[:guess][:term] == params[:guess][:user_guess]
     @guess = Guess.create(card_id: params[:card_id], round_id: params[:round_id], correct?: '1', user_guess: params[:guess][:user_guess])
@@ -34,6 +32,5 @@ post '/deck/:deck_id/round/:round_id/card/:card_id/guess' do
     @card = Card.find(params[:card_id])
 
     erb :answer
->>>>>>> create stats page
   end
 end
