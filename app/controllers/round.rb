@@ -17,6 +17,16 @@ session[:card_ids] = @round.generate_cards(params[:deck_id]) unless session[:car
      session[:card_ids].clear
      redirect to "/user/#{current_user.id}/round/#{@round.id}/stats"
    end
+    @card = Card.find(session[:card_ids].sample)
+    erb :round
+  else
+   @stats = Gchart.bar do |bar|
+     bar.data = [@round.guesses.right.count, @round.guesses.wrong.count]
+     bar.width = 700
+     bar.legend =["Right", "Wrong"] 
+   end
+   session[:card_ids].clear
+   redirect to "/user/#{current_user.id}/round/#{@round.id}/stats"
  end
 end
 

@@ -7,7 +7,11 @@ class Round < ActiveRecord::Base
   has_many :guesses
   belongs_to :deck
   has_many :cards, :through => :deck
-  
+
+  scope: right, -> {where(Round.guesses.correct? => '1')}
+  scope: wrong, -> {where(Round.guesses.correct? => '0')}
+
+
   def generate_cards(deck_id)
     cards = Deck.find(deck_id).cards
     card_ids = []
