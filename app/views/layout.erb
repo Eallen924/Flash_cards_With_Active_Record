@@ -17,8 +17,21 @@
 
   <title></title>
 </head>
+<header>
+  <% if current_user %>
+   <a href="/logout">Logout</a>
+  <% else %>
+  <div class="login">
+    <form action="/user/login" method="post">
+      <input type="text" name="user[username]" placeholder="Username"><br>
+      <input type="password" name="user[password]" placeholder="Password"><br>
+      <input class="button" type="submit" value="Login">
+    </form>
+  </div>
+  <% end %>
+</header>
 <body>
   <%= yield %>
-  <a href="/logout">Logout</a>
+ 
 </body>
 </html>
