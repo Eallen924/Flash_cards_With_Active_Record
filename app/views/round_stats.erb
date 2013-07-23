@@ -1,11 +1,11 @@
 <div class = "container">
   <h1>Congratulations!</h1>
 
-  You finished <%=@round.deck.name%>
+  You finished <%=@round.deck.name%><br>
 
   <img src="<%= @stats.to_url %>" alt="All Time Stats" />
    <p>This round you got <%=@right.count%> out of <%=@round.guesses.count%> questions correct!
-  <ul>  
+  <ul>
   <%@wrong.each do |guess| %>
   <li>For definition: <%=guess.card.definition%></li>
     <ul>

@@ -1,4 +1,4 @@
-<div class = 'container'>
+<div id='container'>
   <% if @card%>
   <%= @card.definition %>
   <form id="card_question" method="post" action="/deck/<%=@card.deck_id%>/round/<%=@round.id%>/card/<%=@card.id%>/guess">
